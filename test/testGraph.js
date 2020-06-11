@@ -3,6 +3,10 @@ const { bfs } = require("../src/graph");
 const pairs = require("./pairs");
 
 describe("bfs", function () {
+  it("should return true if single node connected to itself", function () {
+    assert.isTrue(bfs(pairs, "a", "a"));
+  });
+
   it("should return true if path is possible and near to each other", function () {
     assert.isTrue(bfs(pairs, "a", "b"));
   });
