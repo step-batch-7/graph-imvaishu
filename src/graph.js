@@ -20,7 +20,7 @@ const bfs = function (pairs, source, target) {
     }
     const nodes = parsedPair[dequeue];
     if (nodes != undefined) {
-      nodes.map((node) => {
+      nodes.forEach((node) => {
         if (!queue.includes(node) && !visited.includes(node)) {
           queue.push(node);
         }
