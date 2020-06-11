@@ -4,7 +4,7 @@ const pairs = require("./pairs");
 
 describe("bfs", function () {
   it("should return true if single node connected to itself", function () {
-    assert.isTrue(bfs(pairs, "a", "a"));
+    assert.isTrue(bfs([["a", "a"]], "a", "a"));
   });
 
   it("should return false if single node not connected to itself", function () {

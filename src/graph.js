@@ -13,21 +13,16 @@ const bfs = function (pairs, source, target) {
   const visited = [];
   while (queue.length !== 0) {
     const dequeue = queue.shift();
+    const current_elements = parsedPair[dequeue] || [];
     visited.push(dequeue);
-    if (
-      parsedPair[dequeue] != undefined &&
-      parsedPair[dequeue].includes(target)
-    ) {
+    if (current_elements.includes(target)) {
       return true;
     }
-    const nodes = parsedPair[dequeue];
-    if (nodes != undefined) {
-      nodes.forEach((node) => {
-        if (!queue.includes(node) && !visited.includes(node)) {
-          queue.push(node);
-        }
-      });
-    }
+    current_elements.forEach((node) => {
+      if (!queue.includes(node) && !visited.includes(node)) {
+        queue.push(node);
+      }
+    });
   }
   return false;
 };
