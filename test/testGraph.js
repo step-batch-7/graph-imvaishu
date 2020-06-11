@@ -7,6 +7,10 @@ describe("bfs", function () {
     assert.isTrue(bfs(pairs, "a", "a"));
   });
 
+  it("should return false if single node not connected to itself", function () {
+    assert.isFalse(bfs([["b", "a"]], "b", "b"));
+  });
+
   it("should return true if path is possible and near to each other", function () {
     assert.isTrue(bfs(pairs, "a", "b"));
   });

@@ -9,13 +9,15 @@ const parseData = function (context, element) {
 
 const bfs = function (pairs, source, target) {
   const parsedPair = pairs.reduce(parseData, {});
-  const queue = [];
+  const queue = [source];
   const visited = [];
-  queue.push(source);
   while (queue.length !== 0) {
     const dequeue = queue.shift();
     visited.push(dequeue);
-    if (dequeue === target) {
+    if (
+      parsedPair[dequeue] != undefined &&
+      parsedPair[dequeue].includes(target)
+    ) {
       return true;
     }
     const nodes = parsedPair[dequeue];
